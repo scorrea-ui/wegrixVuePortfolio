@@ -1,0 +1,68 @@
+.c-hero {
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  margin-bottom: 2rem;
+  min-height: 45rem;
+
+  @media screen and (min-width: 62em) {
+    background-position: center;
+    min-height: 78rem;
+  }
+
+  &__wrapper {
+    text-align: center;
+    @media screen and (min-width: 62em) {
+      text-align: left;
+    }
+
+    & button {
+      margin-bottom: 2rem;
+      @media screen and (min-width: 62em) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & h1 {
+    font-weight: 900;
+    line-height: 1.069;
+    text-align: center;
+
+    @media screen and (min-width: 62em) {
+      font-size: 7.2rem;
+      text-align: left;
+      margin: 0 0 2rem;
+      max-width: 40rem;
+    }
+  }
+
+  & p {
+    line-height: 1;
+    text-align: center;
+
+    @media screen and (min-width: 62em) {
+      text-align: left;
+      font-size: 2.4rem;
+      margin: 0 0 2rem;
+      max-width: 46rem;
+    }
+
+    & span {
+      @media screen and (min-width: 62em) {
+        border-right: 0.1rem solid var(--purple);
+        animation: blink 1s infinite;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-right-color: transparent;
+  }
+}

@@ -1,0 +1,43 @@
+.u- {
+  &3\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 25% !important;
+    }
+  }
+
+  &4\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 33.33333% !important;
+    }
+  }
+
+  &5\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 41.66667% !important;
+    }
+  }
+
+  &6\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 50% !important;
+    }
+  }
+
+  &9\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 75% !important;
+    }
+  }
+
+  &12\/12 {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 100% !important;
+    }
+  }
+}

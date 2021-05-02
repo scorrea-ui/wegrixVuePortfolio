@@ -1,0 +1,37 @@
+.o-grid {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  @media screen and (min-width: 62em) {
+    margin-left: -3.2rem;
+  }
+
+  &--middle {
+    align-items: center;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+
+  &--equal-height {
+    & > .o-grid__col {
+      display: flex;
+    }
+  }
+
+  & > .o-grid__col {
+    box-sizing: inherit;
+    flex-basis: auto;
+    min-width: 0;
+
+    @media screen and (min-width: 62em) {
+      padding-left: 3.2rem;
+    }
+  }
+}

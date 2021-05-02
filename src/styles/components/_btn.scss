@@ -1,0 +1,30 @@
+.c-btn {
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  transition: all 0.3s linear;
+  font-size: 1.8rem;
+  line-height: 2;
+  padding: 0.8rem 5.9rem;
+  border: 0.2rem solid transparent;
+  text-decoration: none;
+  width: 100%;
+  max-width: 32rem;
+  min-width: 22rem;
+
+  @media screen and (min-width: 62em) {
+    width: auto;
+  }
+
+  &--primary {
+    background-color: var(--purple);
+    color: var(--white);
+  }
+
+  &--secondary {
+    background-color: #fff;
+    padding: 0.8rem 5.9rem;
+    border: 0.2rem solid;
+    color: var(--teal);
+  }
+}

@@ -1,0 +1,138 @@
+.c-header {
+  background-color: var(--white);
+  left: 0;
+  text-align: center;
+  top: 0;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  z-index: 9999999999;
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.6);
+
+  @media screen and (min-width: 62em) {
+    text-align: left;
+    position: fixed;
+  }
+
+  &__logo {
+    color: color(purple);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900;
+    text-decoration: uppercase;
+
+    @media screen and (min-width: 62em) {
+      display: inline-block;
+    }
+  }
+
+  &__list {
+    background-color: var(--white);
+    box-shadow: 0 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.06);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    transition: 0.5s all ease-in;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      padding-left: 5rem;
+      width: 100vw;
+    }
+
+    @media screen and (min-width: 62em) {
+      background-color: transparent;
+      box-shadow: none;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin-right: 1rem;
+    padding: 1.2rem 0;
+    text-align: left;
+    width: 100%;
+    display: inline-flex;
+
+    &:hover {
+      color: var(--purple);
+    }
+
+    button {
+      &:hover {
+        color: var(--purple);
+      }
+    }
+
+    @media screen and (min-width: 62em) {
+      color: var(--black);
+      padding: 0;
+      width: auto;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__hamburger {
+    appearance: none;
+    border: none;
+    background: transparent;
+    display: block;
+    height: 1.4rem;
+    width: 2.8rem;
+
+    @media screen and (min-width: 62em) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: block;
+    height: 0;
+    position: relative;
+    transition: 0.4s all ease-in;
+
+    &.active {
+      left: 0;
+      height: 100%;
+      position: absolute;
+    }
+
+    @media screen and (min-width: 62em) {
+      height: 100%;
+    }
+  }
+
+  &__link {
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: -0.07rem;
+    color: var(--black);
+
+    @media screen and (min-width: 62em) {
+      display: inline-block;
+      margin-right: 3rem;
+    }
+
+    img {
+      min-width: 1.6rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

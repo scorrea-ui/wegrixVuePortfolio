@@ -1,0 +1,73 @@
+.c-about {
+  padding: 4rem 0;
+
+  @media screen and (min-width: 62em) {
+    padding: 14rem 0 4rem 0;
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 62em) {
+      margin-bottom: 2rem;
+      color: #000;
+      font-size: 6.2rem;
+      line-height: 7rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.8rem;
+    appearance: none;
+    border: 0.2rem solid var(--black);
+    color: var(--black);
+    background: none;
+    padding: 1.2rem 2rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    border-radius: 0.8rem;
+    transition: 0.4s all ease-in;
+  }
+
+  &__time {
+    color: var(--purple);
+    font-size: 2rem;
+  }
+
+  &__copy {
+    font-size: 1.8rem;
+  }
+
+  &__img {
+    display: flex;
+
+    margin: 0 auto 3.2rem auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__me {
+    border-radius: 50%;
+    height: 18rem;
+    width: 18rem;
+  }
+
+  &__skill {
+    display: inline-block;
+    margin: 0 1rem 1rem 0;
+    padding: 0 1rem;
+    border: 0.1rem solid #ced1df;
+    border-radius: 0.8rem;
+    background-color: #eeeff1;
+    color: var(--black);
+    font-size: 1.6rem;
+    line-height: 3.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+}

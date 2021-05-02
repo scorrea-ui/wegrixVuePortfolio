@@ -1,0 +1,12 @@
+.o-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  max-width: 128rem;
+
+  @media screen and (min-width: 62em) {
+    padding-right: 3.2rem;
+    padding-left: 3.2rem;
+  }
+}
