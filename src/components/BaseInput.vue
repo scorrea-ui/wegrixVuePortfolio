@@ -9,33 +9,25 @@
   />
 </template>
 
-<script>
-/* eslint-disable no-unused-vars */
-export default {
-  name: 'BaseInput',
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    type: {
-      type: String,
-      required: true,
-    },
-    ariaLabel: {
-      type: String,
-    },
-    className: {
-      type: String,
-    },
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit('input', e);
-    },
-    handleBlur(e) {
-      this.$emit('blur', e);
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseInput extends Vue {
+  @Prop({ required: true }) public name!: string;
+
+  @Prop({ required: true }) public type!: string;
+
+  @Prop() public ariaLabel!: string;
+
+  @Prop() public className!: string;
+
+  public handleInput(e: Event) {
+    this.$emit('input', e);
+  }
+
+  public handleBlur(e: Event) {
+    this.$emit('blur', e);
+  }
+}
 </script>

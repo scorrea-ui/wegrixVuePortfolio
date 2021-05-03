@@ -4,8 +4,9 @@
   </p>
 </template>
 
-<script>
-export default {
-  name: 'BaseCopy',
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseCopy extends Vue {}
 </script>

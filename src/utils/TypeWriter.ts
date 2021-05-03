@@ -1,6 +1,18 @@
-export default class TypeWriter {
-  constructor(words, wait = 2000) {
-    this.words = words; // Array of words
+import { TypeWriterInterface } from '../interfaces/TypeWriterInterface';
+
+export default class TypeWriter implements TypeWriterInterface {
+  words: Array<string>;
+
+  wait: number;
+
+  text: string;
+
+  index: number;
+
+  isDeleting: boolean;
+
+  constructor(words: Array<string>, wait = 2000) {
+    this.words = words;
     this.wait = wait; // Initial set timeout
     this.text = '';
 

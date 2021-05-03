@@ -10,31 +10,31 @@ const projects = {
     filter: 'All',
   },
   mutations: {
-    [GET_PROJECTS](state, payload) {
+    [GET_PROJECTS](state: { projects: any[]; }, payload: any) {
       state.projects = [
         ...state.projects,
         ...payload,
       ];
     },
-    [FILTER_PROJECTS](state, payload) {
+    [FILTER_PROJECTS](state: any[], payload: any) {
       state.filter = payload;
     },
   },
   actions: {
-    async getProjects({ commit }) {
+    async getProjects({ commit }: any) {
       commit(GET_PROJECTS, await getProjects());
     },
-    filterProjects({ commit }, payload) {
+    filterProjects({ commit }: any, payload: any) {
       commit(FILTER_PROJECTS, payload);
     },
   },
   getters: {
-    options(state) {
-      const tech = state.projects.map((project) => project.tech);
+    options(state: { projects: any[]; }) {
+      const tech = state.projects.map((project: { tech: any; }) => project.tech);
       return new Set(tech);
     },
-    projects(state) {
-      return state.filter === 'All' ? state.projects : state.projects.filter((project) => project.tech === state.filter);
+    projects(state: { filter: string; projects: any[]; }) {
+      return state.filter === 'All' ? state.projects : state.projects.filter((project: { tech: any; }) => project.tech === state.filter);
     },
   },
 };

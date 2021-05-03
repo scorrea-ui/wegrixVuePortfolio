@@ -7,7 +7,7 @@ const articles = {
     articles: [],
   },
   mutations: {
-    [GET_ARTICLES](state, payload) {
+    [GET_ARTICLES](state: { articles: any[]; }, payload: any) {
       state.articles = [
         ...state.articles,
         ...payload,
@@ -15,13 +15,13 @@ const articles = {
     },
   },
   actions: {
-    async getArticles({ commit }) {
+    async getArticles({ commit }: any) {
       const res = await fetchArticles();
       commit(GET_ARTICLES, await res.json());
     },
   },
   getters: {
-    articles(state) {
+    articles(state: { articles: any; }) {
       return state.articles;
     },
   },

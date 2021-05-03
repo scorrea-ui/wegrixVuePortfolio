@@ -19,19 +19,17 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import CardData from '@/data/Cards';
 import CardsItem from './CardsItem.vue';
 
-export default {
-  name: 'Cards',
+@Component({
   components: {
     CardsItem,
   },
-  data() {
-    return {
-      cards: CardData,
-    };
-  },
-};
+})
+export default class Cards extends Vue {
+  public cards = CardData;
+}
 </script>

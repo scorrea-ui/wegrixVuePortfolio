@@ -22,7 +22,10 @@
               <BaseLabel htmlFor="name" text="Full Name" />
             </BaseFieldSet>
             <BaseFieldSet>
-              <BaseError v-if="email.error" text="Are you sure this is an email?" />
+              <BaseError
+                v-if="email.error"
+                text="Are you sure this is an email?"
+              />
               <BaseInput
                 name="email"
                 type="email"
@@ -34,7 +37,10 @@
               <BaseLabel htmlFor="email" text="Email" />
             </BaseFieldSet>
             <BaseFieldSet>
-              <BaseError v-if="phone.error" text="Hey I just met you, and this is crazy" />
+              <BaseError
+                v-if="phone.error"
+                text="Hey I just met you, and this is crazy"
+              />
               <BaseInput
                 name="phone"
                 type="tel"
@@ -70,16 +76,21 @@
   </div>
 </template>
 
-<script>
-import { emailValidation, textValidation, phoneValidation } from '@/utils/Validation';
-import BaseButton from './BaseButton.vue';
-import BaseFieldSet from './BaseFieldSet.vue';
-import BaseInput from './BaseInput.vue';
-import BaseTextArea from './BaseTextArea.vue';
-import BaseLabel from './BaseLabel.vue';
-import BaseError from './BaseError.vue';
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import {
+  emailValidation,
+  textValidation,
+  phoneValidation,
+} from "@/utils/Validation";
+import BaseButton from "./BaseButton.vue";
+import BaseFieldSet from "./BaseFieldSet.vue";
+import BaseInput from "./BaseInput.vue";
+import BaseTextArea from "./BaseTextArea.vue";
+import BaseLabel from "./BaseLabel.vue";
+import BaseError from "./BaseError.vue";
 
-export default {
+@Component({
   components: {
     BaseButton,
     BaseFieldSet,
@@ -88,45 +99,48 @@ export default {
     BaseLabel,
     BaseError,
   },
-  data() {
-    return {
-      name: {
-        value: '',
-        error: false,
-        touched: false,
-        validator: textValidation,
-      },
-      email: {
-        value: '',
-        error: false,
-        touched: false,
-        validator: emailValidation,
-      },
-      phone: {
-        value: '',
-        error: false,
-        touched: false,
-        validator: phoneValidation,
-      },
-      comments: {
-        value: '',
-        touched: false,
-      },
+})
+export default class ContactForm extends Vue {
+  public name = {
+    value: "",
+    error: false,
+    touched: false,
+    validator: textValidation,
+  };
+
+  public email = {
+    value: "",
+    error: false,
+    touched: false,
+    validator: emailValidation,
+  };
+
+  public phone = {
+    value: "",
+    error: false,
+    touched: false,
+    validator: phoneValidation,
+  };
+
+  public comments = {
+    value: "",
+    touched: false,
+  };
+
+  public inputTouched(e: any): void {
+    const { name, value }: { name: string; value: string } = e.target!;
+    this[name] = {
+      ...this[name],
+      value: value,
     };
-  },
-  methods: {
-    inputTouched(e) {
-      this[e.target.name] = {
-        ...this[e.target.name],
-        value: e.target.value,
-      };
-    },
-    inputLostFocus(e) {
-      this[e.target.name] = {
-        ...this[e.target.name],
-        error: this[e.target.name].validator(e.target.value),
-      };
-    },
-  },
-};
+  }
+
+  public inputLostFocus(e: any): void {
+    const { name, value } = e.target;
+    this[name] = {
+      ...this[name],
+      error: this[name].validator(value),
+    };
+  }
+}
 </script>

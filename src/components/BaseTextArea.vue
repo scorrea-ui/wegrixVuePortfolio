@@ -7,26 +7,19 @@
   />
 </template>
 
-<script>
-export default {
-  name: 'BaseTextArea',
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    ariaLabel: {
-      type: String,
-      required: true,
-    },
-    className: {
-      type: String,
-    },
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit('input', e.target.value);
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseTextArea extends Vue {
+  @Prop({ required: true }) public name!: string;
+
+  @Prop({ required: true }) public ariaLabel!: string;
+
+  @Prop() public className!: string;
+
+  public handleInput(e: Event) {
+    this.$emit('input', e);
+  }
+}
 </script>

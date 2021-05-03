@@ -2,18 +2,13 @@
   <label :for="htmlFor">{{ text }}</label>
 </template>
 
-<script>
-export default {
-  name: 'BaseLabel',
-  props: {
-    htmlFor: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseLabel extends Vue {
+  @Prop({ required: true }) public htmlFor!: string;
+
+  @Prop({ required: true }) public text!: string;
+}
 </script>

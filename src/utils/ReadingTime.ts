@@ -1,4 +1,4 @@
-const readingTime = (element) => {
+const readingTime = (element: HTMLElement) => {
   const wpm = 300;
   const text = element.innerText;
   const words = text.trim().split(/\s+/).length;

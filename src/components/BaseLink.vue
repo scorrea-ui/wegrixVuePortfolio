@@ -8,30 +8,22 @@
   </router-link>
 </template>
 
-<script>
-export default {
-  name: 'BaseLink',
-  props: {
-    view: {
-      type: String,
-      required: true,
-    },
-    className: {
-      type: String,
-      default: 'c-btn c-btn--secondary',
-      required: true,
-    },
-    hash: {
-      type: String,
-    },
-  },
-  methods: {
-    scrollToElement() {
-      document.getElementById(this.hash).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseLink extends Vue {
+  @Prop({ required: true }) public view!: string;
+
+  @Prop({ required: true }) public className!: string;
+
+  @Prop() public hash!: string;
+
+  public scrollToElement(): void {
+    document.getElementById(this.hash)!.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+}
 </script>

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import VueRouter, { Route } from 'vue-router';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
@@ -53,12 +53,15 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to: Route, from: Route, savedPosition: any) {
     if (savedPosition) {
       return savedPosition;
     }
 
-    const position = {};
+    const position = {
+      selector: '',
+      behavior: '',
+    };
 
     if (to.hash) {
       position.selector = to.hash;

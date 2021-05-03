@@ -4,8 +4,9 @@
   </fieldset>
 </template>
 
-<script>
-export default {
-  name: 'BaseFieldSet',
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseFieldSet extends Vue {}
 </script>

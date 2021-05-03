@@ -41,26 +41,21 @@
   </header>
 </template>
 
-<script>
-import clickOutside from '@/directives/clickOutside';
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import clickOutside from "@/directives/clickOutside";
 
-export default {
-  name: 'Header',
-  data() {
-    return {
-      active: false,
-    };
-  },
-  methods: {
-    toggleNav() {
-      this.active = !this.active;
-    },
-    closeMenu() {
-      this.active = false;
-    },
-  },
-  directives: {
-    clickOutside,
-  },
-};
+@Component({
+  directives: clickOutside,
+})
+export default class TheHeader extends Vue {
+  public active = false;
+
+  toggleNav() {
+    this.active = !this.active;
+  }
+  closeMenu() {
+    this.active = false;
+  }
+}
 </script>

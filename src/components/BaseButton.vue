@@ -4,20 +4,15 @@
   </button>
 </template>
 
-<script>
-export default {
-  props: {
-    className: {
-      type: String,
-      default: 'c-btn--primary',
-    },
-    type: {
-      type: String,
-    },
-    ariaLabel: {
-      type: String,
-      required: true,
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class BaseButton extends Vue {
+  @Prop({ default: 'c-btn--primary' }) public className!: string;
+
+  @Prop() public type!: string;
+
+  @Prop({ required: true }) public ariaLabel!: string;
+}
 </script>

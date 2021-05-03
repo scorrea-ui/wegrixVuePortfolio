@@ -1,25 +1,25 @@
 <template>
   <div class="home">
-    <Hero />
+    <TheHero />
     <Cards />
     <Projects />
-    <Testimonials />
   </div>
 </template>
 
-<script>
-import Hero from '@/components/TheHero.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import TheHero from '@/components/TheHero.vue';
 import Cards from '@/components/Cards.vue';
 import Projects from '@/components/Projects.vue';
 import Testimonials from '@/components/Testimonials.vue';
 
-export default {
-  name: 'Home',
+@Component({
   components: {
-    Hero,
+    TheHero,
     Cards,
     Projects,
     Testimonials,
   },
-};
+})
+export default class Home extends Vue {}
 </script>

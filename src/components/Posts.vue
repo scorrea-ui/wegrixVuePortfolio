@@ -4,19 +4,15 @@
   </div>
 </template>
 
-<script>
-import PostsCard from './PostsCard.vue';
-
-export default {
-  name: 'Posts',
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import PostsCard from "./PostsCard.vue";
+@Component({
   components: {
     PostsCard,
   },
-  props: {
-    posts: {
-      type: Array,
-      required: true,
-    },
-  },
-};
+})
+export default class Posts extends Vue {
+  @Prop({ required: true }) public posts!: Array<Object>;
+}
 </script>
