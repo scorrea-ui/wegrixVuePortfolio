@@ -1,3 +1,4 @@
+import fetchArticles from '../../api/articles';
 import { GET_ARTICLES } from '../types/articles.types';
 
 const articles = {
@@ -15,7 +16,7 @@ const articles = {
   },
   actions: {
     async getArticles({ commit }) {
-      const res = await fetch('https://dev.to/api/articles?username=scorreaui');
+      const res = await fetchArticles();
       commit(GET_ARTICLES, await res.json());
     },
   },

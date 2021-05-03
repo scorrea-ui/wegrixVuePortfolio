@@ -1,5 +1,5 @@
 <template>
-  <button class="c-btn" :class="className">
+  <button class="c-btn" :class="className" :type="type" :aria-label="ariaLabel">
     <slot></slot>
   </button>
 </template>
@@ -10,6 +10,13 @@ export default {
     className: {
       type: String,
       default: 'c-btn--primary',
+    },
+    type: {
+      type: String,
+    },
+    ariaLabel: {
+      type: String,
+      required: true,
     },
   },
 };

@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'PostItem',
+  name: 'PostsCard',
   props: {
     post: {
       type: Object,

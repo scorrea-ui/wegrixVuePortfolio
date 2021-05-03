@@ -5,13 +5,11 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-
-  margin-bottom: 2rem;
-  min-height: 45rem;
+  margin-bottom: 8rem;
+  padding-top: 2rem;
 
   @media screen and (min-width: 62em) {
     background-position: center;
-    min-height: 78rem;
   }
 
   &__wrapper {

@@ -1,35 +1,22 @@
 <template>
-  <div class="c-articles">
-    <h1>Posts written on dev.to</h1>
-    <div class="o-container">
-      <div class="o-grid">
-        <PostItem v-for="post in articles" :key="post.id" :post="post" />
-      </div>
-    </div>
+  <div class="o-grid">
+    <PostsCard v-for="post in posts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-import PostItem from './PostItem.vue';
+import PostsCard from './PostsCard.vue';
 
 export default {
   name: 'Posts',
   components: {
-    PostItem,
+    PostsCard,
   },
-  methods: {
-    ...mapActions({
-      getArticles: 'articles/getArticles',
-    }),
-  },
-  mounted() {
-    this.getArticles();
-  },
-  computed: {
-    ...mapGetters({
-      articles: 'articles/articles',
-    }),
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

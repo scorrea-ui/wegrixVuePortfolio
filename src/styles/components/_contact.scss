@@ -1,0 +1,79 @@
+.c-contact {
+  padding-bottom: 10rem;
+  &__title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__copy {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #575865;
+  }
+
+  &__btn {
+    appearance: none;
+    border: none;
+    color: #fff;
+    padding: 1rem;
+    min-width: 25rem;
+    border-radius: 0.8rem;
+  }
+
+  &__end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+
+    & fieldset {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-bottom: 2rem;
+      appearance: none;
+      border: none;
+    }
+
+    & label {
+      color: #575865;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    & div {
+      &.error {
+        color: #ff3333;
+      }
+    }
+
+    & input,
+    & textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 0.2rem solid var(--grey);
+      padding: 0 0.5rem;
+
+      &.error {
+        border-color: var(--red);
+
+        & + label {
+          color: var(--red);
+        }
+      }
+
+      &:focus {
+        border-color: var(--purple);
+        outline: none;
+
+        & + label {
+          color: var(--purple);
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <header class="c-header">
+  <header class="c-header" v-click-outside="closeMenu">
     <div class="o-container">
       <div class="o-grid o-grid--between o-grid--middle">
         <div class="o-grid__col u-3/12@md">
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import clickOutside from '@/directives/clickOutside';
+
 export default {
   name: 'Header',
   data() {
@@ -53,6 +55,12 @@ export default {
     toggleNav() {
       this.active = !this.active;
     },
+    closeMenu() {
+      this.active = false;
+    },
+  },
+  directives: {
+    clickOutside,
   },
 };
 </script>

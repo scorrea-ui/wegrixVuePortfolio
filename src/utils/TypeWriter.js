@@ -1,5 +1,5 @@
 export default class TypeWriter {
-  constructor(words, wait = 3000) {
+  constructor(words, wait = 2000) {
     this.words = words; // Array of words
     this.wait = wait; // Initial set timeout
     this.text = '';
@@ -14,7 +14,7 @@ export default class TypeWriter {
     const currentIndex = this.index % this.words.length;
     const word = this.words[currentIndex]; // get current word based on index
 
-    let typeSpeed = 300;
+    let typeSpeed = 200;
 
     if (this.isDeleting) {
       this.text = word.substring(0, this.text.length - 1);
@@ -29,7 +29,7 @@ export default class TypeWriter {
     } else if (this.isDeleting && this.text === '') {
       this.isDeleting = false;
       this.index += 1;
-      typeSpeed = 500;
+      typeSpeed = 400;
     }
 
     if (window.innerWidth >= 768) {

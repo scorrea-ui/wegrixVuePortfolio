@@ -27,6 +27,13 @@
     }
   }
 
+  &8\/12\@md {
+    width: 100% !important;
+    @media screen and (min-width: 62em) {
+      width: 66.66667% !important;
+    }
+  }
+
   &9\/12\@md {
     width: 100% !important;
     @media screen and (min-width: 62em) {

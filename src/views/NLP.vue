@@ -5,8 +5,12 @@
         <div class="o-grid__col u-12/12">
           <h1>NLP: How are you feeling</h1>
           <form @submit="appendWordToTextArray">
-            <textarea v-model="text" />
-            <button type="submit">Submit</button>
+            <BaseTextArea v-model="text" name="comments" ariaLabel="Comments" />
+            <BaseButton
+              type="submit"
+              ariaLabel="Submit Sentiment Analsysis Text"
+              >Submit</BaseButton
+            >
           </form>
         </div>
       </div>
@@ -15,7 +19,14 @@
 </template>
 
 <script>
+import BaseButton from '@/components/BaseButton.vue';
+import BaseTextArea from '@/components/BaseTextArea.vue';
+
 export default {
+  components: {
+    BaseButton,
+    BaseTextArea,
+  },
   data() {
     return {
       text: '',

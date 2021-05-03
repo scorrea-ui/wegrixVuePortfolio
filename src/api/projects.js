@@ -1,13 +1,8 @@
 import db from '../../firebase.config';
-import { GET_PROJECTS } from '../store/types';
 
-const getProjects = (commit) => {
-  db.collection('projects')
-    .get()
-    .then((querySnapshot) => {
-      const documents = querySnapshot.docs.map((doc) => doc.data());
-      commit(GET_PROJECTS, documents);
-    });
+const getProjects = async () => {
+  const res = await db.collection('projects').get();
+  return res.docs.map((doc) => doc.data());
 };
 
 export default getProjects;

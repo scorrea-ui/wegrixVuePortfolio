@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
-import db from '../../../firebase.config';
+import getProjects from '../../api/projects';
 import { GET_PROJECTS, FILTER_PROJECTS } from '../types/projects.types';
 
 const projects = {
@@ -21,13 +21,8 @@ const projects = {
     },
   },
   actions: {
-    getProjects({ commit }) {
-      db.collection('projects')
-        .get()
-        .then((querySnapshot) => {
-          const documents = querySnapshot.docs.map((doc) => doc.data());
-          commit(GET_PROJECTS, documents);
-        });
+    async getProjects({ commit }) {
+      commit(GET_PROJECTS, await getProjects());
     },
     filterProjects({ commit }, payload) {
       commit(FILTER_PROJECTS, payload);
