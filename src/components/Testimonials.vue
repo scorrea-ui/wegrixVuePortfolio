@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="c-testimonial">
+    <div class="c-testimonial" data-aos="zoom-in">
       <h1 class="u-mb u-text-center">Public Testimonials</h1>
       <div class="o-container">
         <div class="o-grid">

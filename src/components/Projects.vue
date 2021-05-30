@@ -3,18 +3,15 @@
     <div class="c-projects">
       <div class="o-container">
         <div class="c-projects__wrapper">
-          <h2 class="c-projects__title">Web {{ "DEV" }} Public Projects()</h2>
+          <h2 class="c-projects__title">Web {{ 'DEV' }} Public Projects()</h2>
         </div>
         <div class="o-grid -grid--middle o-grid--center">
           <div class="o-grid__col u-12/12 u-text-center">
             <ProjectsFilter :projects="projects" :options="options" />
           </div>
           <div class="o-grid o-grid--middle o-grid--center">
-            <ProjectsItem
-              v-for="project in projects"
-              :key="project.project"
-              :project="project"
-            />
+            <img v-if="loading" src="../assets/icons/loading.svg" alt="Loading..." />
+            <ProjectsItem v-for="project in projects" :key="project.project" :project="project" />
           </div>
         </div>
       </div>
@@ -47,6 +44,7 @@ export default {
     ...mapGetters({
       projects: 'projects/projects',
       options: 'projects/options',
+      loading: 'projects/loading',
     }),
   },
 };

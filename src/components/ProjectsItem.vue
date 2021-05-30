@@ -1,5 +1,5 @@
 <template>
-  <div class="o-grid__col u-4/12@md" key="{project.project}">
+  <div class="o-grid__col u-4/12@md" key="{project.project}" data-aos="zoom-in">
     <a
       class="c-projects__wrapper"
       :href="project.url"

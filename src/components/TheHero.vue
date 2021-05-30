@@ -4,25 +4,16 @@
       <div class="o-container">
         <div class="o-grid o-grid--middle o-grid--center">
           <div class="o-grid__col u-5/12@md">
-            <h1>Santiago Correa</h1>
-            <p>
-              A <span>{{ text.text }}</span> that wants to showcase some of the
-              websites he has worked on.
+            <h1 data-aos="fade-right" data-aos-delay="400">Santiago Correa</h1>
+            <p data-aos="fade-right" data-aos-delay="800">
+              A <span>{{ text.text }}</span> that wants to showcase some of the websites he has
+              worked on.
             </p>
-            <div class="c-hero__wrapper">
-              <BaseLink
-                view="Home"
-                className="c-btn c-btn--primary"
-                hash="projects"
-              >
+            <div class="c-hero__wrapper" data-aos="fade-right" data-aos-delay="1200">
+              <BaseLink view="Home" className="c-btn c-btn--primary" hash="projects">
                 Projects
               </BaseLink>
-              <BaseLink
-                view="Contact"
-                className="c-btn c-btn--secondary"
-              >
-                Contact
-              </BaseLink>
+              <BaseLink view="Contact" className="c-btn c-btn--secondary"> Contact </BaseLink>
             </div>
           </div>
           <div class="o-grid__col u-6/12@md">

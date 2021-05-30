@@ -1,7 +1,4 @@
-import articles from './articles.store';
-import projects from './projects.store';
+import articles from './articles/articles-store';
+import projects from './projects/projects-store';
 
-export {
-  articles,
-  projects,
-};
+export { articles, projects };

@@ -38,14 +38,6 @@ const routes = [
     },
   },
   {
-    path: '/nlp',
-    name: 'NLP',
-    component: () => import(/* webpackChunkName: "nlp" */ '../views/NLP.vue'),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
     path: '*',
   },
 ];

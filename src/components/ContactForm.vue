@@ -4,12 +4,10 @@
       <div class="o-grid o-grid--center o-grid--middle">
         <div class="o-grid__col u-8/12@md">
           <h2 class="c-contact__title">Contact Me</h2>
-          <h3 class="c-contact__copy">
-            Any question or remarks? Write a message!
-          </h3>
-          <form name="contact" target="_self" netlify="true">
+          <h3 class="c-contact__copy">Any question or remarks? Write a message!</h3>
+          <form name="contact" target="_self" netlify @submit.prevent>
             <BaseInput name="form-name" type="hidden" />
-            <BaseFieldSet>
+            <BaseFieldSet data-aos="fade-right" data-aos-delay="300">
               <BaseError v-if="name.error" text="Say my name, say my name" />
               <BaseInput
                 name="name"
@@ -21,7 +19,7 @@
               />
               <BaseLabel htmlFor="name" text="Full Name" />
             </BaseFieldSet>
-            <BaseFieldSet>
+            <BaseFieldSet data-aos="fade-right" data-aos-delay="500">
               <BaseError v-if="email.error" text="Are you sure this is an email?" />
               <BaseInput
                 name="email"
@@ -33,7 +31,7 @@
               />
               <BaseLabel htmlFor="email" text="Email" />
             </BaseFieldSet>
-            <BaseFieldSet>
+            <BaseFieldSet data-aos="fade-right" data-aos-delay="700">
               <BaseError v-if="phone.error" text="Hey I just met you, and this is crazy" />
               <BaseInput
                 name="phone"
@@ -45,7 +43,7 @@
               />
               <BaseLabel htmlFor="phone" text="Phone" />
             </BaseFieldSet>
-            <fieldset>
+            <BaseFieldSet data-aos="fade-right" data-aos-delay="900">
               <BaseTextArea
                 name="comments"
                 ariaLabel="Comments"
@@ -53,7 +51,7 @@
                 @input="inputTouched"
               />
               <BaseLabel htmlFor="comments" text="Comments" />
-            </fieldset>
+            </BaseFieldSet>
             <div class="c-contact__end">
               <BaseButton
                 type="submit"
