@@ -27,7 +27,7 @@
                 ariaLabel="Email"
                 v-model="email.value"
                 @blur="inputLostFocus"
-                @input="inputTouched"
+                @input="inputTouched "
               />
               <BaseLabel htmlFor="email" text="Email" />
             </BaseFieldSet>
