@@ -5,8 +5,15 @@
         <div class="o-grid__col u-8/12@md">
           <h2 class="c-contact__title">Contact Me</h2>
           <h3 class="c-contact__copy">Any question or remarks? Write a message!</h3>
-          <form name="contact" target="_self" netlify @submit.prevent>
-            <BaseInput name="form-name" type="hidden" />
+          <p v-if="message" class="u-text-center">{{ message }}</p>
+          <form
+            name="contact"
+            method="post"
+            data-netlify="true"
+            @submit="submit"
+            ref="form"
+          >
+            <BaseInput name="form-name" type="hidden" value="contact" />
             <BaseFieldSet data-aos="fade-right" data-aos-delay="300">
               <BaseError v-if="name.error" text="Say my name, say my name" />
               <BaseInput
@@ -27,7 +34,7 @@
                 ariaLabel="Email"
                 v-model="email.value"
                 @blur="inputLostFocus"
-                @input="inputTouched "
+                @input="inputTouched"
               />
               <BaseLabel htmlFor="email" text="Email" />
             </BaseFieldSet>
@@ -44,12 +51,7 @@
               <BaseLabel htmlFor="phone" text="Phone" />
             </BaseFieldSet>
             <BaseFieldSet data-aos="fade-right" data-aos-delay="900">
-              <BaseTextArea
-                name="comments"
-                ariaLabel="Comments"
-                v-model="comments.value"
-                @input="inputTouched"
-              />
+              <BaseTextArea name="comments" ariaLabel="Comments" v-model="comments.value" />
               <BaseLabel htmlFor="comments" text="Comments" />
             </BaseFieldSet>
             <div class="c-contact__end">
@@ -88,6 +90,8 @@ export default {
   },
   data() {
     return {
+      message: '',
+      success: false,
       name: {
         value: '',
         error: false,
@@ -108,7 +112,6 @@ export default {
       },
       comments: {
         value: '',
-        touched: false,
       },
     };
   },
@@ -124,6 +127,20 @@ export default {
         ...this[e.target.name],
         error: this[e.target.name].validator(e.target.value),
       };
+    },
+    submit(e) {
+      e.preventDefault();
+      if (this.name.value && this.email.value && this.phone.value && this.comments.value) {
+        this.success = true;
+        this.message = 'Woohoo your form has been submitted correctly';
+        this.name.value = '';
+        this.email.value = '';
+        this.phone.value = '';
+        this.comments.value = '';
+      } else {
+        this.success = false;
+        this.message = 'Aww, please make sure everything has a value';
+      }
     },
   },
 };
