@@ -18,6 +18,7 @@ const projectsActions = {
   },
   filterProjects({ commit }, payload) {
     commit(FILTER_PROJECTS, payload);
+    commit(LOADING_PROJECTS, false);
   },
 };
 

@@ -1,18 +1,8 @@
 <template>
   <div class="o-grid__col u-4/12@md" key="{project.project}" data-aos="zoom-in">
-    <a
-      class="c-projects__wrapper"
-      :href="project.url"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="c-projects__wrapper" :href="project.url" target="_blank" rel="noopener noreferrer">
       <div class="c-projects__card">
-        <img
-          :src="project.image"
-          :alt="project.project"
-          width="400px"
-          height="400px"
-        />
+        <img ref="image" :src="project.image" :alt="project.project" width="400px" height="400px" />
         <div class="c-projects__content">
           <div class="c-projects__copy">
             <p class="c-projects__tagline">{{ project.company }}</p>
@@ -24,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'ProjectsItem',
   props: {
