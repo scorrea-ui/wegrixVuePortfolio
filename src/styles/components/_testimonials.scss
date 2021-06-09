@@ -1,11 +1,14 @@
 .c-testimonial {
-  margin-bottom: 10rem;
+  padding-bottom: 10rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 
   h1 {
     font-size: 2.4rem;
     font-weight: 700;
     text-align: center;
     width: 100%;
+    margin: 0 0 2rem 0;
 
     @media screen and (min-width: 62em) {
       margin-bottom: 2rem;
@@ -32,7 +35,7 @@
 
     & blockquote {
       p {
-        color: var(--black);
+        color: var(--text-color);
       }
     }
   }

@@ -9,12 +9,13 @@
   flex-direction: column;
   min-height: 50rem;
   width: 100%;
-  margin: 2rem 0;
+  padding: 2rem 0 0 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 
   @media screen and (min-width: 62em) {
     justify-content: start;
-    margin: 4rem 0;
-    padding-top: 4rem;
+    padding: 4rem 0 0 0;
   }
 
   &__title {
@@ -49,7 +50,8 @@
   }
 
   &__card {
-    background-color: var(--white);
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border-radius: 0.8rem;
     box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
@@ -115,12 +117,11 @@
   }
 
   &__tagline {
-    color: rgba(27, 27, 27, 0.6);
     font-weight: 500;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    color: var(--black);
     font-size: 1.2rem;
+    color: var(--text-color);
   }
 
   &__heading {
@@ -128,6 +129,6 @@
     line-height: 1.2;
     font-weight: 400;
     margin: 0.6rem 0 1rem 0;
-    color: var(--black);
+    color: var(--text-color);
   }
 }

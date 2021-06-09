@@ -1,6 +1,8 @@
 .c-cards {
   max-width: 48rem;
   margin: 0 auto;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 
   @media screen and (min-width: 62em) {
     max-width: 100%;
@@ -8,7 +10,7 @@
 
   &__box {
     align-items: flex-start;
-    border: 0.1rem solid var(--purple);
+    border: 0.1rem solid var(--secondary-color);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -47,6 +49,7 @@
     font-weight: 700;
     text-align: center;
     width: 100%;
+    margin: 0 0 2rem 0;
 
     @media screen and (min-width: 62em) {
       margin-bottom: 2rem;

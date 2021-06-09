@@ -1,5 +1,6 @@
 .c-header {
-  background-color: var(--white);
+  background-color: var(--primary-color);
+  color: var(--text-color);
   left: 0;
   text-align: center;
   top: 0;
@@ -71,7 +72,7 @@
     }
 
     @media screen and (min-width: 62em) {
-      color: var(--black);
+      color: var(--text-color);
       padding: 0;
       width: auto;
     }
@@ -120,7 +121,7 @@
     font-size: 1.6rem;
     text-decoration: none;
     letter-spacing: -0.07rem;
-    color: var(--black);
+    color: var(--text-color);
 
     @media screen and (min-width: 62em) {
       display: inline-block;

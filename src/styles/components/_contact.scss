@@ -1,5 +1,7 @@
 .c-contact {
   padding-bottom: 10rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   &__title {
     font-size: 5rem;
     font-weight: 800;
@@ -53,10 +55,17 @@
 
     & input,
     & textarea {
+      appearance: none;
+      background-color: transparent;
       width: 100%;
       border: none;
-      border-bottom: 0.2rem solid var(--grey);
+      border-bottom: 0.2rem solid var(--text-color);
       padding: 0 0.5rem;
+      color: var(--text-color);
+
+      &::placeholder {
+        color: var(--text-color);
+      }
 
       &.error {
         border-color: var(--red);
@@ -67,11 +76,11 @@
       }
 
       &:focus {
-        border-color: var(--purple);
+        border-color: var(--secondary-color);
         outline: none;
 
         & + label {
-          color: var(--purple);
+          color: var(--secondary-color);
         }
       }
     }

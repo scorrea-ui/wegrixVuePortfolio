@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :data-theme="theme">
     <Header />
     <transition name="fade">
       <router-view />
@@ -11,6 +11,7 @@
 <script>
 import Header from '@/components/global/TheHeader.vue';
 import Footer from '@/components/global/TheFooter.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -18,9 +19,14 @@ export default {
     Header,
     Footer,
   },
+  computed: {
+    ...mapGetters({
+      theme: 'themes/getTheme',
+    }),
+  },
 };
 </script>
 
 <style lang="scss">
-@import "@/styles/app.scss";
+@import '@/styles/app.scss';
 </style>

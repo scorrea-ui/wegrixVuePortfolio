@@ -5,8 +5,10 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  margin-bottom: 8rem;
+  padding-bottom: 8rem;
   padding-top: 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 
   @media screen and (min-width: 62em) {
     background-position: center;
