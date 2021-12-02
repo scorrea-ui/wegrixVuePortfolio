@@ -9,7 +9,10 @@
           <form
             name="contact"
             method="post"
+            action="/contact-us"
             data-netlify="true"
+            netlify
+            netlify-honeypot="bot-field"
             @submit="submit"
             ref="form"
           >
@@ -128,15 +131,12 @@ export default {
         error: this[e.target.name].validator(e.target.value),
       };
     },
-    submit(e) {
-      e.preventDefault();
+    async submit(event) {
+      event.preventDefault();
+
       if (this.name.value && this.email.value && this.phone.value && this.comments.value) {
         this.success = true;
         this.message = 'Woohoo your form has been submitted correctly';
-        this.name.value = '';
-        this.email.value = '';
-        this.phone.value = '';
-        this.comments.value = '';
       } else {
         this.success = false;
         this.message = 'Aww, please make sure everything has a value';
