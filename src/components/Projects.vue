@@ -11,7 +11,12 @@
           </div>
           <div class="o-grid o-grid--middle o-grid--center">
             <img v-if="loading" src="../assets/icons/loading.svg" alt="Loading..." />
-            <ProjectsItem v-for="project in projects" :key="project.project" :project="project" />
+            <ProjectsItem
+              v-else
+              v-for="project in projects"
+              :key="project.project"
+              :project="project"
+            />
           </div>
         </div>
       </div>

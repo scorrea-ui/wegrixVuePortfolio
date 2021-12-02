@@ -85,11 +85,8 @@ a {
   text-decoration: none;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.c-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
