@@ -1,17 +1,15 @@
 <template>
   <div id="app" :data-theme="theme">
     <Header />
-    <transition name="fade">
-      <router-view />
-    </transition>
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Header from '@/components/global/TheHeader.vue';
 import Footer from '@/components/global/TheFooter.vue';
-import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',

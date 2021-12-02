@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Posts from '@/components/Posts.vue';
 import { mapActions, mapGetters } from 'vuex';
+import Posts from '@/components/Posts.vue';
 
 export default {
   name: 'Articles',
