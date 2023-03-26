@@ -49,7 +49,6 @@ export default {
         return this.toggled;
       },
       set(val) {
-        console.log('changed', val);
         this.toggled = val;
         this.toggleTheme(val);
       },
