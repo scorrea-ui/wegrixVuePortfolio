@@ -13,6 +13,7 @@
             data-netlify="true"
             netlify
             netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
             @submit="submit"
             ref="form"
           >
@@ -22,8 +23,8 @@
               <BaseInput
                 name="name"
                 type="text"
+                :modelValue="name.value"
                 ariaLabel="Full Name"
-                v-model="name.value"
                 @blur="inputLostFocus"
                 @input="inputTouched"
               />
@@ -35,7 +36,7 @@
                 name="email"
                 type="email"
                 ariaLabel="Email"
-                v-model="email.value"
+                :modelValue="email.value"
                 @blur="inputLostFocus"
                 @input="inputTouched"
               />
@@ -47,19 +48,26 @@
                 name="phone"
                 type="tel"
                 ariaLabel="Phone Number"
-                v-model="phone.value"
+                :modelValue="phone.value"
                 @blur="inputLostFocus"
                 @input="inputTouched"
               />
               <BaseLabel htmlFor="phone" text="Phone" />
             </BaseFieldSet>
             <BaseFieldSet data-aos="fade-right" data-aos-delay="900">
-              <BaseTextArea name="comments" ariaLabel="Comments" v-model="comments.value" />
+              <BaseTextArea
+                name="comments"
+                ariaLabel="Comments"
+                :modelValue="comments.value"
+                @blur="inputLostFocus"
+                @input="inputTouched"
+              />
               <BaseLabel htmlFor="comments" text="Comments" />
             </BaseFieldSet>
             <div class="c-contact__end">
               <BaseButton
                 type="submit"
+                :disabled="disableSubmitButton"
                 ariaLabel="Submit to contact me"
                 className="c-contact__btn c-btn c-btn--primary"
               >
@@ -81,6 +89,7 @@ import BaseInput from './BaseInput.vue';
 import BaseTextArea from './BaseTextArea.vue';
 import BaseLabel from './BaseLabel.vue';
 import BaseError from './BaseError.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -95,6 +104,7 @@ export default {
     return {
       message: '',
       success: false,
+      disableSubmitButton: false,
       name: {
         value: '',
         error: false,
@@ -115,10 +125,18 @@ export default {
       },
       comments: {
         value: '',
+        error: false,
+        touched: false,
+        validator: textValidation,
       },
     };
   },
   methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('&');
+    },
     inputTouched(e) {
       this[e.target.name] = {
         ...this[e.target.name],
@@ -131,12 +149,30 @@ export default {
         error: this[e.target.name].validator(e.target.value),
       };
     },
+    handleAxiosFormSubmit() {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      };
+      axios.post(
+        '/',
+        this.encode({
+          'form-name': 'contact',
+          name: this.name.value,
+          email: this.email.value,
+          phone: this.phone.value,
+          comments: this.comments.value,
+        }),
+        axiosConfig,
+      );
+    },
     async submit(event) {
       event.preventDefault();
 
       if (this.name.value && this.email.value && this.phone.value && this.comments.value) {
         this.success = true;
         this.message = 'Woohoo your form has been submitted correctly';
+        this.disableSubmitButton = true;
+        this.handleAxiosFormSubmit();
       } else {
         this.success = false;
         this.message = 'Aww, please make sure everything has a value';

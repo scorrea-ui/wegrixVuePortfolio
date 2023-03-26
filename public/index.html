@@ -19,6 +19,39 @@
         JavaScript enabled. Please enable it to continue.</strong
       >
     </noscript>
+    <form
+      hidden
+      name="contact"
+      method="post"
+      action="/contact-us"
+      data-netlify="true"
+      netlify=""
+      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
+    >
+      <input name="form-name" type="hidden" class="" value="contact" />
+      <fieldset data-aos="fade-right" data-aos-delay="300" class="aos-init aos-animate">
+        <!--v-if--><input name="name" type="text" aria-label="Full Name" class="" /><label
+          for="name"
+          >Full Name</label
+        >
+      </fieldset>
+      <fieldset data-aos="fade-right" data-aos-delay="500" class="aos-init">
+        <!--v-if--><input name="email" type="email" aria-label="Email" class="" /><label for="email"
+          >Email</label
+        >
+      </fieldset>
+      <fieldset data-aos="fade-right" data-aos-delay="700" class="aos-init">
+        <!--v-if--><input name="phone" type="tel" aria-label="Phone Number" class="" /><label
+          for="phone"
+          >Phone</label
+        >
+      </fieldset>
+      <fieldset data-aos="fade-right" data-aos-delay="900" class="aos-init">
+        <textarea class="" name="comments" aria-label="Comments"></textarea
+        ><label for="comments">Comments</label>
+      </fieldset>
+    </form>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

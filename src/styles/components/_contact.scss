@@ -22,6 +22,11 @@
     padding: 1rem;
     min-width: 25rem;
     border-radius: 0.8rem;
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
   }
 
   &__end {

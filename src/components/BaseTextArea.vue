@@ -4,6 +4,7 @@
     :name="name"
     :aria-label="ariaLabel"
     @input="handleInput"
+    @blur="handleBlur"
   />
 </template>
 
@@ -25,7 +26,10 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit('input', e.target.value);
+      this.$emit('input', e);
+    },
+    handleBlur(e) {
+      this.$emit('blur', e);
     },
   },
 };
