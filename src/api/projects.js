@@ -1,8 +1,7 @@
-import db from '../../firebase.config';
+import { collection } from 'firebase/firestore';
+import { useCollection } from 'vuefire';
+import { db } from '../../firebase.config';
 
-const getProjects = async () => {
-  const res = await db.collection('projects').get();
-  return res.docs.map((doc) => doc.data());
-};
+const getProjects = () => useCollection(collection(db, 'projects'));
 
 export default getProjects;

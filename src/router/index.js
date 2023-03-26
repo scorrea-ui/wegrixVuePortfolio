@@ -1,13 +1,11 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-
-Vue.use(VueRouter);
+import { createRouter as _createRouter, createWebHistory } from 'vue-router';
+import scrollBehavior from '../utils/scrollBehaviour';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
     meta: {
       guest: true,
     },
@@ -36,33 +34,13 @@ const routes = [
       guest: true,
     },
   },
-  {
-    path: '*',
-  },
 ];
 
-const router = new VueRouter({
-  mode: 'history',
+const createRouter = () => _createRouter({
+  history: createWebHistory(),
   base: process.env.BASE_URL,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    }
-
-    const position = {};
-
-    if (to.hash) {
-      position.selector = to.hash;
-      position.behavior = 'smooth';
-
-      if (document.querySelector(to.hash)) {
-        return position;
-      }
-    }
-
-    return false;
-  },
+  scrollBehavior,
   routes,
 });
 
-export default router;
+export default createRouter;

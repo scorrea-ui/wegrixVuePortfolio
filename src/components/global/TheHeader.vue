@@ -1,5 +1,5 @@
 <template>
-  <header class="c-header" v-click-outside="closeMenu">
+  <header class="c-header">
     <div class="o-container">
       <div class="o-grid o-grid--between o-grid--middle">
         <div class="o-grid__col u-3/12@md">
@@ -37,11 +37,10 @@
 </template>
 
 <script>
-import clickOutside from '@/directives/clickOutside';
 import TheThemeSwitcher from '../TheThemeSwitcher.vue';
 
 export default {
-  name: 'Header',
+  name: 'TheHeader',
   components: {
     ThemeSwitcher: TheThemeSwitcher,
   },
@@ -57,9 +56,6 @@ export default {
     closeMenu() {
       this.active = false;
     },
-  },
-  directives: {
-    clickOutside,
   },
 };
 </script>

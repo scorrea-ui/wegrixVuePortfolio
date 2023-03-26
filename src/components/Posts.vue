@@ -8,7 +8,7 @@
 import PostsCard from './PostsCard.vue';
 
 export default {
-  name: 'Posts',
+  name: 'PostItems',
   components: {
     PostsCard,
   },

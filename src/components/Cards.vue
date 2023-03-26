@@ -22,7 +22,7 @@ import CardData from '@/data/Cards';
 import CardsItem from './CardsItem.vue';
 
 export default {
-  name: 'Cards',
+  name: 'CardItems',
   components: {
     CardsItem,
   },

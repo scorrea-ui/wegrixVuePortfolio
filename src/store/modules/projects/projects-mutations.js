@@ -7,7 +7,7 @@ import {
 
 const projectsMutations = {
   [GET_PROJECTS](state, payload) {
-    state.projects = [...state.projects, ...payload];
+    state.projects = payload;
   },
   [FILTER_PROJECTS](state, payload) {
     state.filter = payload;

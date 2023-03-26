@@ -7,12 +7,13 @@ import {
 } from '../../types/projects.types';
 
 const projectsActions = {
-  async getProjects({ commit }) {
+  async getProjectsAction({ commit }) {
     try {
       commit(LOADING_PROJECTS, true);
-      commit(GET_PROJECTS, await getProjects());
+      commit(GET_PROJECTS, getProjects());
       commit(LOADING_PROJECTS, false);
     } catch (e) {
+      console.log(e);
       commit(ERROR_PROJECTS, e);
     }
   },

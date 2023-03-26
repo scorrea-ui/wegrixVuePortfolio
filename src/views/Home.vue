@@ -2,24 +2,24 @@
   <div class="home">
     <Hero />
     <Cards />
-    <Projects />
-    <Testimonials />
+    <ProjectItems />
+    <TestimonialsItems />
   </div>
 </template>
 
 <script>
 import Hero from '@/components/TheHero.vue';
 import Cards from '@/components/Cards.vue';
-import Projects from '@/components/Projects.vue';
-import Testimonials from '@/components/Testimonials.vue';
+import ProjectItems from '@/components/ProjectItems.vue';
+import TestimonialsItems from '@/components/TestimonialsItems.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
     Hero,
     Cards,
-    Projects,
-    Testimonials,
+    ProjectItems,
+    TestimonialsItems,
   },
 };
 </script>

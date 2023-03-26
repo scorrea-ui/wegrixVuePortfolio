@@ -2,7 +2,7 @@
 import Vue from 'vue';
 
 const clickOutside = {
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     el.eventOnClick = (event) => {
       if (!(el === event.target || el.contains(event.target))) {
         vnode.context[binding.expression](event);
@@ -10,7 +10,7 @@ const clickOutside = {
     };
     document.addEventListener('click', el.eventOnClick);
   },
-  unbind(el) {
+  beforeUnmount(el) {
     document.removeEventListener('click', el.eventOnClick);
   },
 };

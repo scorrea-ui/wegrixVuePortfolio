@@ -69,6 +69,7 @@ import Copy from '@/components/BaseCopy.vue';
 import readingTime from '@/utils/ReadingTime';
 
 export default {
+  name: 'AboutView',
   data() {
     return {
       time: 0,

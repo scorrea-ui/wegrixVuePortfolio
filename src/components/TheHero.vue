@@ -1,7 +1,6 @@
 <template>
   <section>
     <div class="c-hero">
-      <div class="o-container">
         <div class="o-grid o-grid--middle o-grid--center">
           <div class="o-grid__col u-5/12@md">
             <h1 data-aos="fade-right" data-aos-delay="400">Santiago Correa</h1>
@@ -16,15 +15,14 @@
               <BaseLink view="Contact" className="c-btn c-btn--secondary"> Contact </BaseLink>
             </div>
           </div>
-          <div class="o-grid__col u-6/12@md">
+          <div class="o-grid__col u-6/12@md u-text-center">
             <img
-              src="https://f.hubspotusercontent40.net/hubfs/7562645/Portfolio/hero.svg"
+              src="https://wegrix-portfolio.s3.amazonaws.com/cetacea.png"
               alt="Hero"
             />
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
